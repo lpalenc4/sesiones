@@ -6,7 +6,14 @@ function getFolderProyect(){
     }else{
         $folder = str_replace('C:\\xampp1\\htdocs\\', '/', __DIR__);    
     }
-    $folder = str_replace('config', '', $folder);
+    $folder = str_replace('config','', $folder);
 return $folder;
 }
-?>
+
+function saveImage($file){
+    $imageName = str_replace('', '', $file['imagen']['name']);
+    $imgTmp = $file['imagen']['tmp_name'];
+
+    move_uploaded_file($imgTmp, $_SERVER['DOCUMENT_ROOT'].getFolderProyect().'/images/'.$imageName);
+    return $imageName;
+}

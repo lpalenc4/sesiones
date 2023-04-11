@@ -8,7 +8,7 @@ class Database{
     public $conexion;
 
     function connectToDatabase(){
-        $this->conexion =mysqli_connec( $this->host, $this->user, $this->pass, $this->db);
+        $this->conexion =mysqli_connect( $this->host, $this->user, $this->pass, $this->db);
 
         if(mysqli_connect_error()){
             echo 'Error de conexion',mysqli_connect_error();
